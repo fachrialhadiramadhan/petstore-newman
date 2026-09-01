@@ -23,4 +23,4 @@ jobs:
         run: "npm install -g newman-reporter-htmlextra"
 
       - name: "Run tests"
-        run: "newman run petstore-postman-collection.json -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darkTheme  > runreport1.html"
+        run: "newman run tests/petstore-postman-collection.json -r htmlextra --reporter-htmlextra-export htmlreport.html --reporter-htmlextra-darkTheme  > runreport1.html"
