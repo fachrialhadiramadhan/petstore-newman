@@ -1,0 +1,23 @@
+name: PetStore Newman API Tests
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    defaults:
+      run:
+        working-directory: ./
+    environment: staging
+    name: "Run tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: "Install newman"
+        run: "npm install -g newman"
+
+      - name: "Run tests"
+        run: "newman run tests.petstore-postman-collection.json"
